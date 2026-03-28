@@ -29,6 +29,7 @@ const App = () => {
         <Notes 
         
         notes={notes}
+        setNotes={setNotes}
         />
 
       </div>

@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 
 const Form = ({ title, setTitle, content, setContent, notes, setNotes }) => {
 

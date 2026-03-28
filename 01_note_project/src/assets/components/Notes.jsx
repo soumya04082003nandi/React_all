@@ -1,21 +1,13 @@
 import React from 'react'
 
-const Notes = ({notes}) => {
+const Notes = ({ notes, setNotes }) => {
 
-  // const notes = [
-  //   { id: 1, title: "React Revision", content: "Revise hooks and lifecycle methods." },
-  //   { id: 2, title: "Project Idea", content: "Build a notes app with authentication." },
-  //   { id: 3, title: "Interview Prep", content: "Practice DSA and JavaScript questions." },
-  // ]
-
-  //Date
+  // Date
   const today = new Date();
-  const day= today.getDate();
-  const month= today.getMonth();
-  const year=today.getFullYear();
-  const currentDate=`${day}/${month}/${year}`;
-  
-  
+  const day = today.getDate();
+  const month = today.getMonth() + 1; // ✅ fix
+  const year = today.getFullYear();
+  const currentDate = `${day}/${month}/${year}`;
 
   return (
     <div className="w-full lg:w-2/3 px-4 sm:px-6 py-6">
@@ -32,7 +24,7 @@ const Notes = ({notes}) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-          {notes.map(note => (
+          {notes.map((note, index) => (
             <div
               key={note.id}
               className="
@@ -52,16 +44,27 @@ const Notes = ({notes}) => {
                   {note.title}
                 </h3>
 
-                <p className="text-gray-600 text-sm flex flex-wrap  leading-relaxed">
+                <p className="text-gray-600 text-sm flex flex-wrap leading-relaxed">
                   {note.content}
                 </p>
-                </div>
+              </div>
 
               <div className="flex justify-between gap-3 mt-4">
-                <h5 className='text-gray-700 text-sm'> {currentDate}</h5>
-                <button className="text-sm px-3 py-1 rounded-lg bg-red-100 text-red-600 hover:bg-red-200 transition">
+                <h5 className='text-gray-700 text-sm'>{currentDate}</h5>
+
+                <button
+                  className="text-sm px-3 py-1 rounded-lg 
+                  bg-red-100 text-red-600
+                  hover:bg-red-200 transition"
+
+                  onClick={() => {
+                    const updatedNotes = notes.filter((_, i) => i !== index);
+                    setNotes(updatedNotes);
+                  }}
+                >
                   Delete
                 </button>
+
               </div>
 
             </div>
