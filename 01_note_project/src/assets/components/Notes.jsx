@@ -8,6 +8,15 @@ const Notes = () => {
     { id: 3, title: "Interview Prep", content: "Practice DSA and JavaScript questions." },
   ]
 
+  //Date
+  const today = new Date();
+  const day= today.getDate();
+  const month= today.getMonth();
+  const year=today.getFullYear();
+  const currentDate=`${day}/${month}/${year}`;
+  
+  
+
   return (
     <div className="w-full lg:w-2/3 px-4 sm:px-6 py-6">
 
@@ -48,10 +57,8 @@ const Notes = () => {
                 </p>
               </div>
 
-              <div className="flex justify-end gap-3 mt-4">
-                <button className="text-sm px-3 py-1 rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-200 transition">
-                  Edit
-                </button>
+              <div className="flex justify-between gap-3 mt-4">
+                <h5 className='text-gray-700 text-sm'> {currentDate}</h5>
                 <button className="text-sm px-3 py-1 rounded-lg bg-red-100 text-red-600 hover:bg-red-200 transition">
                   Delete
                 </button>
