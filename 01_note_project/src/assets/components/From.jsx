@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Form = () => {
+const Form = ({ title, setTitle, content, setContent, notes, setNotes }) => {
+
+
     return (
         <div className="w-full lg:w-1/3 flex justify-center px-4 py-6">
 
@@ -31,6 +33,10 @@ const Form = () => {
                         focus:ring-2 focus:ring-purple-400 
                         transition duration-300
                     "
+                    value={title}
+                    onChange={(e) => {
+                        setTitle(e.target.value)
+                    }}
                     type="text"
                     placeholder="Note Heading"
                 />
@@ -47,6 +53,10 @@ const Form = () => {
                         focus:ring-2 focus:ring-purple-400 
                         transition duration-300
                     "
+                    value={content}
+                    onChange={(e) => {
+                        setContent(e.target.value)
+                    }}
                     placeholder="Write your note..."
                 ></textarea>
 
@@ -54,13 +64,33 @@ const Form = () => {
                     w-full 
                     py-2 sm:py-3 
                     rounded-xl 
-                    bg-gradient-to-r from-purple-500 to-indigo-500 
+                    bg-linear-to-r from-purple-500 to-indigo-500 
                     text-white font-medium 
                     shadow-md 
                     hover:scale-105 hover:shadow-lg 
                     active:scale-95
                     transition-all duration-300
-                ">
+                "
+                    onClick={() => {
+                        if (title != '' || content != '') {
+                            const newNote = {
+                                id: Date.now(),
+                                title,
+                                content
+                            };
+                            setNotes([...notes, newNote]);
+
+                            setContent('');
+                            setTitle('');
+                            console.log(notes);
+                        }
+
+
+
+
+                    }}
+
+                >
                     Add Note
                 </button>
 

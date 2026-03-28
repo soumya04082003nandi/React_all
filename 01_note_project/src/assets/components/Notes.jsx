@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Notes = () => {
+const Notes = ({notes}) => {
 
-  const notes = [
-    { id: 1, title: "React Revision", content: "Revise hooks and lifecycle methods." },
-    { id: 2, title: "Project Idea", content: "Build a notes app with authentication." },
-    { id: 3, title: "Interview Prep", content: "Practice DSA and JavaScript questions." },
-  ]
+  // const notes = [
+  //   { id: 1, title: "React Revision", content: "Revise hooks and lifecycle methods." },
+  //   { id: 2, title: "Project Idea", content: "Build a notes app with authentication." },
+  //   { id: 3, title: "Interview Prep", content: "Practice DSA and JavaScript questions." },
+  // ]
 
   //Date
   const today = new Date();
@@ -52,10 +52,10 @@ const Notes = () => {
                   {note.title}
                 </h3>
 
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm flex flex-wrap  leading-relaxed">
                   {note.content}
                 </p>
-              </div>
+                </div>
 
               <div className="flex justify-between gap-3 mt-4">
                 <h5 className='text-gray-700 text-sm'> {currentDate}</h5>
