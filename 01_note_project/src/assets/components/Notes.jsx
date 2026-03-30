@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 const Notes = ({ notes, setNotes }) => {
 
@@ -9,6 +10,25 @@ const Notes = ({ notes, setNotes }) => {
   const year = today.getFullYear();
   const currentDate = `${day}/${month}/${year}`;
 
+  const callData = async () => {
+    const responce= await fetch('https://jsonplaceholder.typicode.com/posts')
+    const data = await responce.json();
+    console.log(typeof(data));
+
+    const responceAxios= await axios('https://jsonplaceholder.typicode.com/posts')
+
+    console.log(responceAxios.data
+      
+    );
+    
+    
+    // console.log(data[0]);
+    
+    
+    
+    
+    
+  }
   return (
     <div className="w-full lg:w-2/3 px-4 sm:px-6 py-6">
 
@@ -64,6 +84,7 @@ const Notes = ({ notes, setNotes }) => {
                 >
                   Delete
                 </button>
+                <button onClick={callData}>show data</button>
 
               </div>
 
