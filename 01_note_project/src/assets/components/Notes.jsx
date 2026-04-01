@@ -77,7 +77,7 @@ const Notes = ({ notes, setNotes }) => {
                 >
                   Delete
                 </button>
-                <button onClick={callData}>show data</button>
+                
 
               </div>
 
