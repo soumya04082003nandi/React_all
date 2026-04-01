@@ -10,25 +10,18 @@ const Notes = ({ notes, setNotes }) => {
   const year = today.getFullYear();
   const currentDate = `${day}/${month}/${year}`;
 
-  const callData = async () => {
-    const responce= await fetch('https://jsonplaceholder.typicode.com/posts')
-    const data = await responce.json();
-    console.log(typeof(data));
+  // const callData = async () => {
+  //   const responce = await fetch('https://jsonplaceholder.typicode.com/posts')
+  //   const data = await responce.json();
+  //   console.log(typeof (data));
 
-    const responceAxios= await axios('https://jsonplaceholder.typicode.com/posts')
+  //   const responceAxios = await axios('https://jsonplaceholder.typicode.com/posts')
 
-    console.log(responceAxios.data
-      
-    );
-    
-    
-    // console.log(data[0]);
-    
-    
-    
-    
-    
-  }
+  //   console.log(responceAxios.data
+
+  //   );
+
+  // }
   return (
     <div className="w-full lg:w-2/3 px-4 sm:px-6 py-6">
 
